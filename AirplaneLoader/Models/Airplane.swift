@@ -8,9 +8,9 @@
 import Foundation
 
 class Airplane: ObservableObject {
-    @Published var seats: [[Seat]] = [[]]
+    @Published var rows: [Row] = []
     
-    let rowLayout: [Bool] = [true, true, true, true, true, true]
+    let rowLayout: [Bool] = [true, true, true, false, false, true, true, true]
     
     var noSeatCount: Int {
         return rowLayout.filter( { !$0 } ).count
@@ -22,14 +22,14 @@ class Airplane: ObservableObject {
     
     init() {
         for i in 0..<rowCount {
-            seats.append([])
+            rows.append(Row())
             for _ in 0..<(rowWidth - noSeatCount) {
-                seats[i].append(Seat())
+                rows[i].seats.append(Seat())
             }
         }
     }
     
-    func getSeatFromRow(row: [Seat], seatIndex: Int) -> Seat{
+    func getSeatFromRow(row: Row, seatIndex: Int) -> Seat{
         var currentSeatIndex = -1
         for i in 0..<rowWidth {
             if (rowLayout[i]){
@@ -37,11 +37,17 @@ class Airplane: ObservableObject {
             }
             
             if(i == seatIndex) {
-                return row[currentSeatIndex]
+                return row.seats[currentSeatIndex]
             }
         }
         print("THIS IS AN ISSUE")
-        return row[0]
+        return row.seats[0]
     }
     
+}
+
+class Row: ObservableObject, Identifiable {
+    @Published var seats: [Seat] = []
+    
+    var id = UUID()
 }

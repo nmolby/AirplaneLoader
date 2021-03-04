@@ -14,23 +14,20 @@ struct ContentView: View {
     var body: some View {
         VStack{
             AirplaneView(airplane: airplane)
-            AddPartyView(seats: $airplane.seats, seatPicker: basicSeatPicker)
-            Button("print airplane state") {
-                print(airplane.seats[0])
-            }
+            AddPartyView(rows: $airplane.rows, seatPicker: basicSeatPicker)
+
         }
     }
     
-    func basicSeatPicker(seats: [[Seat]], party: Party) -> [Seat] {
+    func basicSeatPicker(rows: [Row], party: Party) -> [Seat] {
         var seatsToAdd : [Seat] = []
         for person in party.people {
-            for row in seats {
+            for row in rows {
                 var foundSeat = false
-                for seat in row {
+                for seat in row.seats {
                     if(!seat.occupied) {
                         seatsToAdd.append(seat)
                         seat.personInSeat = person
-                        print("found seat for \(seat.personInSeat!.name)")
                         foundSeat = true
                         break
                     } 
