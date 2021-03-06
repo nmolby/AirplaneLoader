@@ -56,7 +56,7 @@ struct AddPartyView: View {
                             .buttonStyle(BorderlessButtonStyle())
                     }
                     Button("Add party") {
-                        createParty(partyType: PartyType.tourist)
+                        createParty(partyType: PartyType.family)
                     }.disabled(peopleNames[0] == "" || peopleNames[1] == "")                }
             }
 
@@ -73,6 +73,10 @@ struct AddPartyView: View {
             newParty.people.append(newPerson)
         case PartyType.family:
             newParty = FamilyParty()
+            for i in 0..<(familyNumberOfChildren + 2) {
+                let newPerson = Person(name: peopleNames[i], id: UUID(), party: newParty)
+                newParty.people.append(newPerson)
+            }
         case PartyType.tourist:
             newParty = TouristParty()
             let newPerson1 = Person(name: peopleNames[0], id: UUID(), party: newParty)

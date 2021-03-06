@@ -15,7 +15,6 @@ struct ContentView: View {
         VStack{
             AirplaneView(airplane: airplane)
             AddPartyView(rows: $airplane.rows, seatPicker: basicSeatPicker)
-
         }
     }
     

@@ -11,14 +11,17 @@ import SwiftUI
 struct AirplaneView: View {
     @ObservedObject internal var airplane: Airplane
     
+    private var gridItemLayout: [GridItem] {
+        return Array(repeating:GridItem(.flexible()), count: airplane.rowWidth)
+    }
+    
     var body: some View {
         VStack{
             ForEach(airplane.rows) { row in
                 HStack{
                     ForEach(0..<airplane.rowWidth) { seatIndex in
                         if (airplane.rowLayout[seatIndex]) {
-                            SeatView(seat: airplane.getSeatFromRow(row: row, seatIndex: seatIndex))
-
+                            SeatView(seat: airplane.getSeatFromRow(row: row, seatIndex: seatIndex), rows: airplane.rows)
                         } else {
                             Image(systemName: "square").opacity(0)
                         }

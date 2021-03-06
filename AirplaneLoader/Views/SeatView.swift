@@ -10,18 +10,53 @@ import SwiftUI
 
 struct SeatView: View {
     @ObservedObject internal var seat: Seat
-    var body: some View {
-        if(seat.occupied) {
-            switch(seat.personInSeat!.party.partyType) {
-            case PartyType.business:
-                SeatImageView(occupied: true).foregroundColor(.blue)
-            case PartyType.tourist:
-                SeatImageView(occupied: true).foregroundColor(.green)
-            case PartyType.family:
-                SeatImageView(occupied: true).foregroundColor(.yellow)
-            }
-        } else {
-            SeatImageView(occupied: false)
+    internal var rows: [Row]
+    
+    private var occupancyColor: Color {
+        if(!seat.occupied) { return Color.white }
+        switch(seat.personInSeat!.party.partyType) {
+        case PartyType.business:
+            return Color.pink
+        case PartyType.tourist:
+            return Color.purple
+        case PartyType.family:
+            return Color(red: 115 / 255, green: 220 / 255, blue: 255 / 255)
         }
+    }
+    
+    private var borderColor: Color {
+        return seat.business ? Color.blue : Color.black
+    }
+    
+    private var satisfactionColor: Color {
+        if let personInSeat = seat.personInSeat {
+            if(personInSeat.party.getSatisfaction(seat: seat, rows: rows) < -5) {
+                return Color.red
+            } else if (personInSeat.party.getSatisfaction(seat: seat, rows: rows) < 0) {
+                return Color.yellow
+            } else if(personInSeat.party.getSatisfaction(seat: seat, rows: rows) < 5) {
+                return Color.white
+            } else if (personInSeat.party.getSatisfaction(seat: seat, rows: rows) < 10) {
+                return Color(red: 0.671875, green: 0.69921875, blue: 0.203125)
+            } else {
+                return Color.green
+            }
+        }
+        else {
+            return Color.white
+        }
+    }
+    
+    var body: some View {
+        ZStack{
+            Image(systemName: "square.fill")
+                .foregroundColor(satisfactionColor)
+            Image(systemName: "circle.fill.square.fill")
+                .foregroundColor(occupancyColor)
+            Image(systemName: "square")
+                .foregroundColor(borderColor)
+        }
+
+        
     }
 }

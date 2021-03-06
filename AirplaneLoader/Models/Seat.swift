@@ -14,7 +14,14 @@ class Seat: Identifiable, Hashable, CustomStringConvertible, ObservableObject {
     
     var id = UUID()
     
+    var business: Bool
+    
     @Published var personInSeat: Person?
+    
+    init(business: Bool = false, personInSeat: Person? = nil) {
+        self.business = business
+        self.personInSeat = personInSeat
+    }
     
     var occupied: Bool {
         return personInSeat != nil

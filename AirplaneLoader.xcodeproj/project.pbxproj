@@ -19,7 +19,6 @@
 		110FC34D25EFEB2100E04DA0 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FC34C25EFEB2100E04DA0 /* Person.swift */; };
 		110FC35025EFF47700E04DA0 /* AirplaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FC34F25EFF47700E04DA0 /* AirplaneView.swift */; };
 		112D016D25F07FCD00B7496F /* AddPartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D016C25F07FCD00B7496F /* AddPartyView.swift */; };
-		116C284025F166100099C9AE /* SeatImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C283F25F166100099C9AE /* SeatImageView.swift */; };
 		116C284325F166250099C9AE /* SeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C284225F166250099C9AE /* SeatView.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		110FC34C25EFEB2100E04DA0 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		110FC34F25EFF47700E04DA0 /* AirplaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirplaneView.swift; sourceTree = "<group>"; };
 		112D016C25F07FCD00B7496F /* AddPartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartyView.swift; sourceTree = "<group>"; };
-		116C283F25F166100099C9AE /* SeatImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatImageView.swift; sourceTree = "<group>"; };
 		116C284225F166250099C9AE /* SeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,7 +96,6 @@
 				110FC33025EFE76C00E04DA0 /* ContentView.swift */,
 				110FC34F25EFF47700E04DA0 /* AirplaneView.swift */,
 				112D016C25F07FCD00B7496F /* AddPartyView.swift */,
-				116C283F25F166100099C9AE /* SeatImageView.swift */,
 				116C284225F166250099C9AE /* SeatView.swift */,
 			);
 			path = Views;
@@ -186,7 +183,6 @@
 			files = (
 				110FC33825EFE76D00E04DA0 /* Persistence.swift in Sources */,
 				110FC35025EFF47700E04DA0 /* AirplaneView.swift in Sources */,
-				116C284025F166100099C9AE /* SeatImageView.swift in Sources */,
 				110FC33125EFE76C00E04DA0 /* ContentView.swift in Sources */,
 				112D016D25F07FCD00B7496F /* AddPartyView.swift in Sources */,
 				110FC34725EFEA0900E04DA0 /* Seat.swift in Sources */,

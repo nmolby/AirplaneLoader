@@ -12,6 +12,8 @@ class Airplane: ObservableObject {
     
     let rowLayout: [Bool] = [true, true, true, false, false, true, true, true]
     
+    let businessRowCount = 2
+    
     var noSeatCount: Int {
         return rowLayout.filter( { !$0 } ).count
     }
@@ -24,7 +26,11 @@ class Airplane: ObservableObject {
         for i in 0..<rowCount {
             rows.append(Row())
             for _ in 0..<(rowWidth - noSeatCount) {
-                rows[i].seats.append(Seat())
+                if(i < businessRowCount) {
+                    rows[i].seats.append(Seat(business: true))
+                } else {
+                    rows[i].seats.append(Seat())
+                }
             }
         }
     }
