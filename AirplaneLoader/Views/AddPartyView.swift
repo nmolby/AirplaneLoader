@@ -12,7 +12,7 @@ struct AddPartyView: View {
     @Binding internal var rows: [Row]
     internal var seatPicker: ([Row], Party) -> [Seat]
     @State private var partyType = PartyType.business
-    @State private var peopleNames: [String] = ["", "", "", "", ""]
+    @State private var peopleNames: [String] = Array(repeating: "", count: 5)
     @State private var wantsBusiness: Bool = true
     @State private var familyNumberOfChildren = 1
     
@@ -32,7 +32,6 @@ struct AddPartyView: View {
                     Button("Add party") {
                         createParty(partyType: PartyType.business)
                     }.disabled(peopleNames[0] == "")
-                    
                 case PartyType.tourist:
                     TextField("Traveler 1 Name", text: $peopleNames[0])
                     TextField("Traveler 2 Name", text: $peopleNames[1])
@@ -83,8 +82,12 @@ struct AddPartyView: View {
             let newPerson2 = Person(name: peopleNames[1], id: UUID(), party: newParty)
             newParty.people.append(newPerson1)
             newParty.people.append(newPerson2)
-
         }
         seatPicker(rows, newParty)
+        clearPeople()
+    }
+    
+    func clearPeople() {
+        self.peopleNames = Array(repeating: "", count: 5)
     }
 }

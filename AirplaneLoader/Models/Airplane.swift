@@ -25,12 +25,27 @@ class Airplane: ObservableObject {
     init() {
         for i in 0..<rowCount {
             rows.append(Row())
-            for _ in 0..<(rowWidth - noSeatCount) {
-                if(i < businessRowCount) {
-                    rows[i].seats.append(Seat(business: true))
-                } else {
-                    rows[i].seats.append(Seat())
+            for j in 0..<rowWidth {
+                if(rowLayout[j]) {
+                    var seatType: SeatType
+                    
+                    //if the seat is at the far left or far right of the plane, it is a window seat
+                    if(j == 0 || j == rowWidth - 1) {
+                        seatType = SeatType.Window
+                    //if the seat has an empty space to its left or right, it is an aisle seat
+                    } else if (!rowLayout[j - 1] || !rowLayout[j + 1]) {
+                        seatType = SeatType.Aisle
+                    } else{
+                        seatType = SeatType.Middle
+                    }
+                    
+                    if(i < businessRowCount) {
+                        rows[i].seats.append(Seat(seatType: seatType, business: true))
+                    } else {
+                        rows[i].seats.append(Seat(seatType: seatType))
+                    }
                 }
+
             }
         }
     }

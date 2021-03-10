@@ -7,10 +7,18 @@
 
 import Foundation
 
+enum SeatType {
+    case Window
+    case Middle
+    case Aisle
+}
+
 class Seat: Identifiable, Hashable, CustomStringConvertible, ObservableObject {
     static func == (lhs: Seat, rhs: Seat) -> Bool {
         return lhs.id == rhs.id
     }
+    
+    var seatType: SeatType
     
     var id = UUID()
     
@@ -18,9 +26,10 @@ class Seat: Identifiable, Hashable, CustomStringConvertible, ObservableObject {
     
     @Published var personInSeat: Person?
     
-    init(business: Bool = false, personInSeat: Person? = nil) {
+    init(seatType: SeatType, business: Bool = false, personInSeat: Person? = nil) {
         self.business = business
         self.personInSeat = personInSeat
+        self.seatType = seatType
     }
     
     var occupied: Bool {

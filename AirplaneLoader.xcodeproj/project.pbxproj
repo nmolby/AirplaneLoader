@@ -20,6 +20,7 @@
 		110FC35025EFF47700E04DA0 /* AirplaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110FC34F25EFF47700E04DA0 /* AirplaneView.swift */; };
 		112D016D25F07FCD00B7496F /* AddPartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D016C25F07FCD00B7496F /* AddPartyView.swift */; };
 		116C284325F166250099C9AE /* SeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C284225F166250099C9AE /* SeatView.swift */; };
+		11B51E5C25F97AD300077BB8 /* todo in Resources */ = {isa = PBXBuildFile; fileRef = 11B51E5B25F97AD300077BB8 /* todo */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		110FC34F25EFF47700E04DA0 /* AirplaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirplaneView.swift; sourceTree = "<group>"; };
 		112D016C25F07FCD00B7496F /* AddPartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartyView.swift; sourceTree = "<group>"; };
 		116C284225F166250099C9AE /* SeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatView.swift; sourceTree = "<group>"; };
+		11B51E5B25F97AD300077BB8 /* todo */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				110FC33C25EFE76D00E04DA0 /* Info.plist */,
 				110FC33925EFE76D00E04DA0 /* AirplaneLoader.xcdatamodeld */,
 				110FC33425EFE76D00E04DA0 /* Preview Content */,
+				11B51E5B25F97AD300077BB8 /* todo */,
 			);
 			path = AirplaneLoader;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11B51E5C25F97AD300077BB8 /* todo in Resources */,
 				110FC33625EFE76D00E04DA0 /* Preview Assets.xcassets in Resources */,
 				110FC33325EFE76D00E04DA0 /* Assets.xcassets in Resources */,
 			);
