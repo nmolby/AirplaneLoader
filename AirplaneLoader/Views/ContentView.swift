@@ -18,7 +18,7 @@ struct ContentView: View {
         }
     }
     
-    func basicSeatPicker(rows: [Row], party: Party) -> [Seat] {
+    func basicSeatPicker(rows: [Row], party: inout Party) -> [Seat] {
         var seatsToAdd : [Seat] = []
         for person in party.people {
             for row in rows {
@@ -36,6 +36,7 @@ struct ContentView: View {
                 }
             }
         }
+        party.seats = seatsToAdd
         
         return seatsToAdd
     }

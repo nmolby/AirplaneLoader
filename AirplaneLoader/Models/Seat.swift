@@ -14,31 +14,10 @@ enum SeatType {
 }
 
 class Seat: Identifiable, Hashable, CustomStringConvertible, ObservableObject {
-    static func == (lhs: Seat, rhs: Seat) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
     var seatType: SeatType
-    
     var id = UUID()
-    
     var business: Bool
-    
     @Published var personInSeat: Person?
-    
-    init(seatType: SeatType, business: Bool = false, personInSeat: Person? = nil) {
-        self.business = business
-        self.personInSeat = personInSeat
-        self.seatType = seatType
-    }
-    
-    var occupied: Bool {
-        return personInSeat != nil
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
     
     var description: String {
         if let person = personInSeat {
@@ -46,6 +25,24 @@ class Seat: Identifiable, Hashable, CustomStringConvertible, ObservableObject {
         } else {
             return "Unoccupied"
         }
-        
+    }
+    
+    var occupied: Bool {
+        return personInSeat != nil
+    }
+    
+    init(seatType: SeatType, business: Bool = false, personInSeat: Person? = nil) {
+        self.business = business
+        self.personInSeat = personInSeat
+        self.seatType = seatType
+    }
+    
+    static func == (lhs: Seat, rhs: Seat) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

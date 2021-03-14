@@ -30,13 +30,13 @@ struct SeatView: View {
     
     private var satisfactionColor: Color {
         if let personInSeat = seat.personInSeat {
-            if(personInSeat.party.getSatisfaction(seat: seat, rows: rows) < -5) {
+            if(personInSeat.party.getSatisfaction(seats: personInSeat.party.seats, rows: rows) < -5) {
                 return Color.red
-            } else if (personInSeat.party.getSatisfaction(seat: seat, rows: rows) < 0) {
+            } else if (personInSeat.party.getSatisfaction(seats: personInSeat.party.seats, rows: rows) < 0) {
                 return Color.yellow
-            } else if(personInSeat.party.getSatisfaction(seat: seat, rows: rows) < 5) {
+            } else if(personInSeat.party.getSatisfaction(seats: personInSeat.party.seats, rows: rows) < 5) {
                 return Color.white
-            } else if (personInSeat.party.getSatisfaction(seat: seat, rows: rows) < 10) {
+            } else if (personInSeat.party.getSatisfaction(seats: personInSeat.party.seats, rows: rows) < 10) {
                 return Color(red: 0.671875, green: 0.69921875, blue: 0.203125)
             } else {
                 return Color.green
