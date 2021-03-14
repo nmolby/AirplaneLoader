@@ -72,3 +72,22 @@ class Row: ObservableObject, Identifiable {
     
     var id = UUID()
 }
+
+func getSeatsLocations(seats: [Seat], rows: [Row]) -> [(rowNum: Int, seatNum: Int)]{
+    var seatLocations: [(Int, Int)] = []
+    for seat in seats {
+        seatLocations.append(getSeatLocation(seat: seat, rows: rows))
+    }
+    return seatLocations
+}
+
+func getSeatLocation(seat: Seat, rows: [Row]) -> (rowNum: Int, seatNum: Int){
+    for i in 0..<rows.count {
+        for j in 0..<rows[i].seats.count {
+            if(rows[i].seats[j] == seat) {
+                return (i, j)
+            }
+        }
+    }
+    return (-1, -1)
+}

@@ -37,7 +37,7 @@ struct ContentView: View {
             }
         }
         party.seats = seatsToAdd
-        
+        print(party.seats)
         return seatsToAdd
     }
 
