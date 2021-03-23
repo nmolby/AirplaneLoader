@@ -20,7 +20,7 @@ class Airplane: ObservableObject {
     var rowWidth : Int {
         return rowLayout.count
     }
-    let rowCount = 20
+    let rowCount = 5
     
     init() {
         for i in 0..<rowCount {

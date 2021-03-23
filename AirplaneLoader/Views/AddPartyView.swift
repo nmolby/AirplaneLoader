@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AddPartyView: View {
     @Binding internal var rows: [Row]
-    internal var seatPicker: ([Row], inout Party) -> [Seat]
+    internal var seatPicker: ([Row], Party) -> [Seat]
     @State private var partyType = PartyType.business
     @State private var peopleNames: [String] = Array(repeating: "", count: 5)
     @State private var wantsBusiness: Bool = true
@@ -81,7 +81,11 @@ struct AddPartyView: View {
             newParty.people.append(newPerson1)
             newParty.people.append(newPerson2)
         }
-        seatPicker(rows, &newParty)
+        var seats = seatPicker(rows, newParty)
+        newParty.seats = seats
+        for i in 0..<seats.count {
+            seats[i].personInSeat = newParty.people[i]
+        }
         clearPeople()
     }
     

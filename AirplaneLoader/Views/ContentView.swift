@@ -14,36 +14,11 @@ struct ContentView: View {
     var body: some View {
         VStack{
             AirplaneView(airplane: airplane)
-            AddPartyView(rows: $airplane.rows, seatPicker: basicSeatPicker)
+            AddPartyView(rows: $airplane.rows, seatPicker: SeatPickerFunctions.recursiveSeatPicker)
         }
-    }
-    
-    func basicSeatPicker(rows: [Row], party: inout Party) -> [Seat] {
-        var seatsToAdd : [Seat] = []
-        for person in party.people {
-            for row in rows {
-                var foundSeat = false
-                for seat in row.seats {
-                    if(!seat.occupied) {
-                        seatsToAdd.append(seat)
-                        seat.personInSeat = person
-                        foundSeat = true
-                        break
-                    } 
-                }
-                if(foundSeat) {
-                    break
-                }
-            }
-        }
-        party.seats = seatsToAdd
-        print(party.seats)
-        return seatsToAdd
     }
 
-    
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
