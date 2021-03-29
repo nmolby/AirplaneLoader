@@ -10,6 +10,7 @@ import Foundation
 class Airplane: ObservableObject {
     @Published var rows: [Row] = []
     
+    let seatingAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H"]
     let rowLayout: [Bool] = [true, true, true, false, false, true, true, true]
     
     let businessRowCount = 2
@@ -20,7 +21,7 @@ class Airplane: ObservableObject {
     var rowWidth : Int {
         return rowLayout.count
     }
-    let rowCount = 5
+    let rowCount = 20
     
     init() {
         for i in 0..<rowCount {
@@ -40,9 +41,9 @@ class Airplane: ObservableObject {
                     }
                     
                     if(i < businessRowCount) {
-                        rows[i].seats.append(Seat(seatType: seatType, business: true))
+                        rows[i].seats.append(Seat(seatType: seatType, rowNumber: i + 1, seatLetter: seatingAlphabet[getActualSeatIndexFromRowLayout(seatIndex: j)], business: true))
                     } else {
-                        rows[i].seats.append(Seat(seatType: seatType))
+                        rows[i].seats.append(Seat(seatType: seatType, rowNumber: i + 1, seatLetter: seatingAlphabet[getActualSeatIndexFromRowLayout(seatIndex: j)]))
                     }
                 }
 
@@ -63,6 +64,19 @@ class Airplane: ObservableObject {
         }
         print("THIS IS AN ISSUE")
         return row.seats[0]
+    }
+    
+    func getActualSeatIndexFromRowLayout(seatIndex: Int) -> Int {
+        var actualSeatIndex = 0
+        for i in 0..<rowLayout.count {
+            if(i == seatIndex) {
+                return actualSeatIndex
+            }
+            if(rowLayout[i]) {
+                actualSeatIndex += 1
+            }
+        }
+        return -1
     }
     
 }

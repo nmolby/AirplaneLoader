@@ -14,7 +14,9 @@ struct ContentView: View {
     var body: some View {
         VStack{
             AirplaneView(airplane: airplane)
-            AddPartyView(rows: $airplane.rows, seatPicker: SeatPickerFunctions.recursiveSeatPicker)
+            Spacer()
+            AddPartyView(rows: $airplane.rows, inefficientSeatPicker: SeatPickerFunctions.recursiveSeatPicker, efficientSeatPicker: SeatPickerFunctions.basicSeatPicker, canAddMultipleCustomers: false)
+            Spacer()
         }
     }
 

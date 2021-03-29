@@ -25,6 +25,9 @@ struct SeatView: View {
     }
     
     private var borderColor: Color {
+        if(seat.occupied && seat.personInSeat!.party.highlighted) {
+            return Color.yellow
+        }
         return seat.business ? Color.blue : Color.black
     }
     
@@ -56,7 +59,5 @@ struct SeatView: View {
             Image(systemName: "square")
                 .foregroundColor(borderColor)
         }
-
-        
     }
 }

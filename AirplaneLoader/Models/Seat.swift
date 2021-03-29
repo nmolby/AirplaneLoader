@@ -15,6 +15,8 @@ enum SeatType {
 
 class Seat: Identifiable, Hashable, CustomStringConvertible, ObservableObject {
     var seatType: SeatType
+    var rowNumber: Int
+    var seatLetter: String
     var id = UUID()
     var business: Bool
     @Published var personInSeat: Person?
@@ -31,10 +33,12 @@ class Seat: Identifiable, Hashable, CustomStringConvertible, ObservableObject {
         return personInSeat != nil
     }
     
-    init(seatType: SeatType, business: Bool = false, personInSeat: Person? = nil) {
+    init(seatType: SeatType, rowNumber: Int, seatLetter: String, business: Bool = false, personInSeat: Person? = nil) {
         self.business = business
         self.personInSeat = personInSeat
         self.seatType = seatType
+        self.rowNumber = rowNumber
+        self.seatLetter = seatLetter
     }
     
     static func == (lhs: Seat, rhs: Seat) -> Bool {

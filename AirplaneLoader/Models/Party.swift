@@ -18,6 +18,7 @@ enum PartyType: String, CaseIterable, Identifiable {
 protocol Party {
     var id: UUID {get}
     var people: [Person] { get set }
+    var highlighted: Bool { get set }
     var partyType: PartyType {get}
     var peopleCountRange: (Int, Int) { get }
     var seats: [Seat] { get set }
@@ -27,6 +28,7 @@ protocol Party {
 }
 
 class BusinessParty: Party {
+    var highlighted: Bool = false
     var seats: [Seat] = []
     let id = UUID()
     var people: [Person] = []
@@ -52,6 +54,7 @@ class BusinessParty: Party {
 }
 
 class TouristParty: Party {
+    var highlighted: Bool = false
     var seats: [Seat] = []
     let id = UUID()
     var people: [Person] = []
@@ -79,6 +82,7 @@ class TouristParty: Party {
 }
 
 class FamilyParty: Party {
+    var highlighted: Bool = false
     var seats: [Seat] = []
     let id = UUID()
     var people: [Person] = []

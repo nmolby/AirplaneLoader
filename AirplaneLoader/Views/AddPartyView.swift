@@ -10,13 +10,37 @@ import SwiftUI
 
 struct AddPartyView: View {
     @Binding internal var rows: [Row]
-    internal var seatPicker: ([Row], Party) -> [Seat]
+    internal var inefficientSeatPicker: ([Row], Party) -> [Seat]
+    internal var efficientSeatPicker: ([Row], Party) -> [Seat]
+    internal var canAddMultipleCustomers: Bool
     @State private var partyType = PartyType.business
     @State private var peopleNames: [String] = Array(repeating: "", count: 5)
     @State private var wantsBusiness: Bool = true
     @State private var familyNumberOfChildren = 1
+    @State private var addingParty = false
+    @State private var partyAdded : Party? = nil
     
     var body: some View {
+        if(addingParty) {
+            VStack {
+                Text("Adding new party")
+                    .font(.title2)
+                    .padding([.bottom], 20)
+                ProgressView()
+                    .scaleEffect(x: 3, y: 3)
+            }
+        } else if let partyAdded = partyAdded {
+            if(canAddMultipleCustomers) {
+                
+            } else {
+                VStack {
+                    ForEach(0..<partyAdded.people.count) { i in
+                        Text("\(partyAdded.people[i].name!) is in seat \(partyAdded.seats[i].rowNumber)\(partyAdded.seats[i].seatLetter)")
+                    }
+                }
+
+            }
+        } else {
             Form {
                 Picker("Party Type", selection: $partyType) {
                     Text("Business").tag(PartyType.business)
@@ -58,6 +82,8 @@ struct AddPartyView: View {
                         createParty(partyType: PartyType.family)
                     }.disabled(peopleNames[0] == "" || peopleNames[1] == "")                }
             }
+
+        }
     }
     
     func createParty (partyType: PartyType) {
@@ -81,12 +107,30 @@ struct AddPartyView: View {
             newParty.people.append(newPerson1)
             newParty.people.append(newPerson2)
         }
-        var seats = seatPicker(rows, newParty)
-        newParty.seats = seats
-        for i in 0..<seats.count {
-            seats[i].personInSeat = newParty.people[i]
+        
+        addingParty = true
+        DispatchQueue.global(qos: .background).async {
+            var seats: [Seat]
+
+            if(partyType == PartyType.family) {
+                seats = efficientSeatPicker(rows, newParty)
+            } else {
+                seats = inefficientSeatPicker(rows, newParty)
+            }
+            
+            DispatchQueue.main.sync {
+                newParty.seats = seats
+                for i in 0..<seats.count {
+                    seats[i].personInSeat = newParty.people[i]
+                }
+                clearPeople()
+                addingParty = false
+                partyAdded = newParty
+                newParty.highlighted = true
+            }
         }
-        clearPeople()
+
+
     }
     
     func clearPeople() {
