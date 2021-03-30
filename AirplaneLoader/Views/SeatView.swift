@@ -52,12 +52,18 @@ struct SeatView: View {
     
     var body: some View {
         ZStack{
-            Image(systemName: "square.fill")
-                .foregroundColor(satisfactionColor)
-            Image(systemName: "circle.fill.square.fill")
-                .foregroundColor(occupancyColor)
-            Image(systemName: "square")
-                .foregroundColor(borderColor)
+            if(seat.highlighted) {
+                Image(systemName: "star.square.fill")
+                    .foregroundColor(occupancyColor)
+            } else {
+                Image(systemName: "square.fill")
+                    .foregroundColor(satisfactionColor)
+                Image(systemName: "circle.fill.square.fill")
+                    .foregroundColor(occupancyColor)
+                Image(systemName: "square")
+                    .foregroundColor(borderColor)
+            }
+
         }
     }
 }

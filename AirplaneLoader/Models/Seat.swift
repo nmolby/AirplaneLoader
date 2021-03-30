@@ -19,6 +19,7 @@ class Seat: Identifiable, Hashable, CustomStringConvertible, ObservableObject {
     var seatLetter: String
     var id = UUID()
     var business: Bool
+    var highlighted = false
     @Published var personInSeat: Person?
     
     var description: String {

@@ -30,14 +30,20 @@ struct AddPartyView: View {
                     .scaleEffect(x: 3, y: 3)
             }
         } else if let partyAdded = partyAdded {
-            if(canAddMultipleCustomers) {
-                
-            } else {
-                VStack {
-                    ForEach(0..<partyAdded.people.count) { i in
+            VStack {
+                ForEach(0..<partyAdded.people.count) { i in
+                    Button {
+                        print("set seat to highlighted")
+                        partyAdded.seats[i].highlighted = true
+                    } label: {
                         Text("\(partyAdded.people[i].name!) is in seat \(partyAdded.seats[i].rowNumber)\(partyAdded.seats[i].seatLetter)")
                     }
                 }
+            }
+            if(canAddMultipleCustomers) {
+                
+            } else {
+
 
             }
         } else {
