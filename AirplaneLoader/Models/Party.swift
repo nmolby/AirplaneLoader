@@ -45,7 +45,6 @@ class BusinessParty: Party {
     }
     
     func getSatisfaction(seats: [Seat], rows: [Row]) -> Int {
-        print(seats)
         let seat = seats[0]
         if(seat.business && wantsBusinessSeats) {
             return 5

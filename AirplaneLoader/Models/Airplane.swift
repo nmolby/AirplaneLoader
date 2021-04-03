@@ -25,7 +25,7 @@ class Airplane: ObservableObject {
     
     init() {
         for i in 0..<rowCount {
-            rows.append(Row())
+            rows.append(Row(rowNum: i + 1))
             for j in 0..<rowWidth {
                 if(rowLayout[j]) {
                     var seatType: SeatType
@@ -66,6 +66,21 @@ class Airplane: ObservableObject {
         return row.seats[0]
     }
     
+    func getSeatLetterFromIndex(seatIndex: Int) -> String {
+        var currentSeatIndex = -1
+        for i in 0..<rowWidth {
+            if (rowLayout[i]){
+                currentSeatIndex += 1
+            }
+            
+            if(i == seatIndex) {
+                return seatingAlphabet[currentSeatIndex]
+            }
+        }
+        print("THIS IS AN ISSUE")
+        return ""
+    }
+    
     func getActualSeatIndexFromRowLayout(seatIndex: Int) -> Int {
         var actualSeatIndex = 0
         for i in 0..<rowLayout.count {
@@ -83,8 +98,14 @@ class Airplane: ObservableObject {
 
 class Row: ObservableObject, Identifiable {
     @Published var seats: [Seat] = []
+    internal var rowNum: Int
     
     var id = UUID()
+    
+    init(rowNum: Int) {
+        self.rowNum = rowNum
+    }
+    
 }
 
 func getSeatsLocations(seats: [Seat], rows: [Row]) -> [(rowNum: Int, seatNum: Int)]{
