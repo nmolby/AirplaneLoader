@@ -14,7 +14,7 @@ class SeatPickerFunctions {
             for row in rows {
                 var foundSeat = false
                 for seat in row.seats {
-                    if(!seat.occupied && !seatsToAdd.contains(seat)) {
+                    if(!seat.occupied && !seatsToAdd.contains(seat) && !party.previousSeats.contains(seat)) {
                         seatsToAdd.append(seat)
                         foundSeat = true
                         break
@@ -43,7 +43,7 @@ class SeatPickerFunctions {
         
         for row in rows {
             for seat in row.seats {
-                if(!currentSeats.contains(seat) && !seat.occupied) {
+                if(!currentSeats.contains(seat) && !seat.occupied && !party.previousSeats.contains(seat)) {
                     var seatsToCheck = currentSeats
                     seatsToCheck.append(seat)
                     

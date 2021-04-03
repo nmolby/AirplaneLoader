@@ -23,11 +23,7 @@ class Seat: Identifiable, Hashable, CustomStringConvertible, ObservableObject {
     @Published var personInSeat: Person?
     
     var description: String {
-        if let person = personInSeat {
-            return person.name!
-        } else {
-            return "Unoccupied"
-        }
+        return String(rowNumber) + seatLetter
     }
     
     var occupied: Bool {

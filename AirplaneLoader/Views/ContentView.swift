@@ -10,12 +10,13 @@ import CoreData
 
 struct ContentView: View {
     @StateObject var airplane = Airplane()
+    @State internal var partyClickedOn: Party? = nil
     
     var body: some View {
         VStack{
-            AirplaneView(airplane: airplane)
+            AirplaneView(airplane: airplane, partyClickedOn: $partyClickedOn)
             Spacer()
-            AddPartyView(rows: $airplane.rows, inefficientSeatPicker: SeatPickerFunctions.recursiveSeatPicker, efficientSeatPicker: SeatPickerFunctions.basicSeatPicker, canAddMultipleCustomers: false)
+            AddPartyView(rows: $airplane.rows, inefficientSeatPicker: SeatPickerFunctions.recursiveSeatPicker, efficientSeatPicker: SeatPickerFunctions.basicSeatPicker, canAddMultipleCustomers: true, partyClickedOn: $partyClickedOn)
             Spacer()
         }
     }

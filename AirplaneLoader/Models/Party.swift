@@ -15,6 +15,7 @@ enum PartyType: String, CaseIterable, Identifiable {
     var id: String { self.rawValue }
 }
 
+
 protocol Party {
     var id: UUID {get}
     var people: [Person] { get set }
@@ -22,12 +23,15 @@ protocol Party {
     var partyType: PartyType {get}
     var peopleCountRange: (Int, Int) { get }
     var seats: [Seat] { get set }
+    var previousSeats: [Seat] { get set}
+    var seatChangesRemaining: Int { get set }
     
     func getSatisfaction(seats: [Seat], rows: [Row]) -> Int
-
 }
 
 class BusinessParty: Party {
+    var previousSeats: [Seat] = []
+    var seatChangesRemaining = 2
     var highlighted: Bool = false
     var seats: [Seat] = []
     let id = UUID()
@@ -53,7 +57,9 @@ class BusinessParty: Party {
     
 }
 
-class TouristParty: Party {
+class TouristParty: Party, ObservableObject {
+    var previousSeats: [Seat] = []
+    var seatChangesRemaining = 2
     var highlighted: Bool = false
     var seats: [Seat] = []
     let id = UUID()
@@ -81,7 +87,9 @@ class TouristParty: Party {
     
 }
 
-class FamilyParty: Party {
+class FamilyParty: Party, ObservableObject {
+    var previousSeats: [Seat] = []
+    var seatChangesRemaining = 2
     var highlighted: Bool = false
     var seats: [Seat] = []
     let id = UUID()

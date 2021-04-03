@@ -22,6 +22,8 @@
 		114DA97B260A7C2E0024CB26 /* SeatPickerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114DA97A260A7C2E0024CB26 /* SeatPickerFunctions.swift */; };
 		116C284325F166250099C9AE /* SeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C284225F166250099C9AE /* SeatView.swift */; };
 		11B51E5C25F97AD300077BB8 /* todo in Resources */ = {isa = PBXBuildFile; fileRef = 11B51E5B25F97AD300077BB8 /* todo */; };
+		11EC1AD32617CED9002E4492 /* PassengerTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC1AD22617CED9002E4492 /* PassengerTicketView.swift */; };
+		11EC1AD62617D523002E4492 /* PassengerSeatPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		114DA97A260A7C2E0024CB26 /* SeatPickerFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatPickerFunctions.swift; sourceTree = "<group>"; };
 		116C284225F166250099C9AE /* SeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatView.swift; sourceTree = "<group>"; };
 		11B51E5B25F97AD300077BB8 /* todo */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
+		11EC1AD22617CED9002E4492 /* PassengerTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerTicketView.swift; sourceTree = "<group>"; };
+		11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerSeatPreviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				110FC34F25EFF47700E04DA0 /* AirplaneView.swift */,
 				112D016C25F07FCD00B7496F /* AddPartyView.swift */,
 				116C284225F166250099C9AE /* SeatView.swift */,
+				11EC1AD22617CED9002E4492 /* PassengerTicketView.swift */,
+				11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,8 +201,10 @@
 				110FC34725EFEA0900E04DA0 /* Seat.swift in Sources */,
 				110FC34A25EFEB1200E04DA0 /* Party.swift in Sources */,
 				110FC33B25EFE76D00E04DA0 /* AirplaneLoader.xcdatamodeld in Sources */,
+				11EC1AD62617D523002E4492 /* PassengerSeatPreviewView.swift in Sources */,
 				110FC34425EFE9B000E04DA0 /* Airplane.swift in Sources */,
 				114DA97B260A7C2E0024CB26 /* SeatPickerFunctions.swift in Sources */,
+				11EC1AD32617CED9002E4492 /* PassengerTicketView.swift in Sources */,
 				116C284325F166250099C9AE /* SeatView.swift in Sources */,
 				110FC34D25EFEB2100E04DA0 /* Person.swift in Sources */,
 				110FC32F25EFE76C00E04DA0 /* AirplaneLoaderApp.swift in Sources */,

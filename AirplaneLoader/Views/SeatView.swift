@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SeatView: View {
     @ObservedObject internal var seat: Seat
+    @Binding internal var partyClickedOn: Party?
     internal var rows: [Row]
     
     private var occupancyColor: Color {
@@ -25,9 +26,6 @@ struct SeatView: View {
     }
     
     private var borderColor: Color {
-        if(seat.occupied && seat.personInSeat!.party.highlighted) {
-            return Color.yellow
-        }
         return seat.business ? Color.blue : Color.black
     }
     
@@ -51,11 +49,12 @@ struct SeatView: View {
     }
     
     var body: some View {
-        ZStack{
-            if(seat.highlighted) {
-                Image(systemName: "star.square.fill")
-                    .foregroundColor(occupancyColor)
-            } else {
+        Button(action: {
+            if (seat.occupied) {
+                partyClickedOn = seat.personInSeat!.party
+            }
+        }, label: {
+            ZStack{
                 Image(systemName: "square.fill")
                     .foregroundColor(satisfactionColor)
                 Image(systemName: "circle.fill.square.fill")
@@ -63,7 +62,8 @@ struct SeatView: View {
                 Image(systemName: "square")
                     .foregroundColor(borderColor)
             }
+            
+        })
 
-        }
     }
 }
