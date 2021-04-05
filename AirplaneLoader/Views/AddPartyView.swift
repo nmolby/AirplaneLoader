@@ -12,14 +12,13 @@ struct AddPartyView: View {
     @Binding internal var rows: [Row]
     internal var inefficientSeatPicker: ([Row], Party) -> [Seat]
     internal var efficientSeatPicker: ([Row], Party) -> [Seat]
-    internal var canAddMultipleCustomers: Bool
     @State private var partyType = PartyType.business
     @State private var peopleNames: [String] = Array(repeating: "", count: 5)
     @State private var wantsBusiness: Bool = true
     @State private var familyNumberOfChildren = 1
     @State private var addingParty = false
-    @State private var partyAdded : Party?  = nil
-    @Binding internal var partyClickedOn: Party?
+    @Binding internal var partyToShow: Party?
+    @Binding internal var userType: UserType
     
     var body: some View {
         NavigationView {
@@ -32,26 +31,25 @@ struct AddPartyView: View {
                         ProgressView()
                             .scaleEffect(x: 3, y: 3)
                     }
-                }  else if let partyAdded = partyClickedOn ?? partyAdded {
+                }  else if let partyToShow = partyToShow {
                     ScrollView {
-                        ForEach(0..<partyAdded.people.count, id: \.self) { i in
-                            PassengerSeatPreviewView(person: partyAdded.people[i], seat: partyAdded.seats[i])
+                        ForEach(0..<partyToShow.people.count, id: \.self) { i in
+                            PassengerSeatPreviewView(person: partyToShow.people[i], seat: partyToShow.seats[i])
                                 .padding([.top, .bottom], 5)
                         }
-                        Button("Change Party Seats. \(partyAdded.seatChangesRemaining) Remaining.") {
+                        Button("Change Party Seats. \(partyToShow.seatChangesRemaining) Remaining.") {
                             reseatParty()
                         }
-                        .disabled(partyAdded.seatChangesRemaining <= 0)
+                        .disabled(partyToShow.seatChangesRemaining <= 0)
                         .foregroundColor(Color.white)
                         .font(.title2)
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 10).fill(partyAdded.seatChangesRemaining <= 0 ? Color.gray : Color.blue))
+                        .background(RoundedRectangle(cornerRadius: 10).fill(partyToShow.seatChangesRemaining <= 0 ? Color.gray : Color.blue))
                         
 
-                        if(canAddMultipleCustomers) {
-                            Button("Add New Customer") {
-                                self.partyAdded = nil
-                                partyClickedOn = nil
+                        if(userType != UserType.Passenger) {
+                            Button("Add New Party") {
+                                self.partyToShow = nil
                             }
                             .foregroundColor(Color.white)
                             .font(.title2)
@@ -111,13 +109,14 @@ struct AddPartyView: View {
  
         }
 
+
     
     }
     
     func reseatParty() {
         addingParty = true
         
-        var party = partyClickedOn ?? partyAdded!
+        var party = partyToShow!
         
         party.seatChangesRemaining -= 1
         party.previousSeats += party.seats
@@ -142,7 +141,7 @@ struct AddPartyView: View {
                 }
                 clearPeople()
                 addingParty = false
-                partyAdded = party
+                partyToShow = party
                 party.highlighted = true
             }
         }
@@ -187,7 +186,7 @@ struct AddPartyView: View {
                 }
                 clearPeople()
                 addingParty = false
-                partyAdded = newParty
+                partyToShow = newParty
                 newParty.highlighted = true
             }
         }

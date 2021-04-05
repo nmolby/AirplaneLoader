@@ -10,7 +10,8 @@ import SwiftUI
 
 struct AirplaneView: View {
     @ObservedObject internal var airplane: Airplane
-    @Binding internal var partyClickedOn: Party?
+    @Binding internal var partyToShow: Party?
+    @Binding internal var userType: UserType
     internal var letteringSize: CGFloat = 13
     
     private var gridItemLayout: [GridItem] {
@@ -43,7 +44,7 @@ struct AirplaneView: View {
 
                     ForEach(0..<airplane.rowWidth) { seatIndex in
                         if (airplane.rowLayout[seatIndex]) {
-                            SeatView(seat: airplane.getSeatFromRow(row: row, seatIndex: seatIndex), partyClickedOn: $partyClickedOn, rows: airplane.rows)
+                            SeatView(seat: airplane.getSeatFromRow(row: row, seatIndex: seatIndex), partyToShow: $partyToShow, userType: $userType, rows: airplane.rows)
                         } else {
                             Image(systemName: "square").opacity(0)
                         }

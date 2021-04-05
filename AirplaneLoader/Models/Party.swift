@@ -16,7 +16,7 @@ enum PartyType: String, CaseIterable, Identifiable {
 }
 
 
-protocol Party {
+protocol Party: class {
     var id: UUID {get}
     var people: [Person] { get set }
     var highlighted: Bool { get set }

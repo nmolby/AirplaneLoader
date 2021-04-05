@@ -10,11 +10,26 @@ import SwiftUI
 
 struct SeatView: View {
     @ObservedObject internal var seat: Seat
-    @Binding internal var partyClickedOn: Party?
+    @Binding internal var partyToShow: Party?
+    @Binding internal var userType: UserType
+
     internal var rows: [Row]
     
     private var occupancyColor: Color {
         if(!seat.occupied) { return Color.white }
+        
+        if(userType == UserType.Passenger) {
+            if(seat.occupied) {
+                if(seat.personInSeat!.party === partyToShow) {
+                    return Color.green
+                } else {
+                    return Color.gray
+                }
+            } else {
+                return Color.white
+            }
+        }
+        
         switch(seat.personInSeat!.party.partyType) {
         case PartyType.business:
             return Color.pink
@@ -30,6 +45,17 @@ struct SeatView: View {
     }
     
     private var satisfactionColor: Color {
+        if(userType == UserType.Passenger) {
+            if(seat.occupied) {
+                if(seat.personInSeat!.party === partyToShow) {
+                    return Color.green
+                } else {
+                    return Color.gray
+                }
+            } else {
+                return Color.white
+            }
+        }
         if let personInSeat = seat.personInSeat {
             if(personInSeat.party.getSatisfaction(seats: personInSeat.party.seats, rows: rows) < -5) {
                 return Color.red
@@ -50,8 +76,8 @@ struct SeatView: View {
     
     var body: some View {
         Button(action: {
-            if (seat.occupied) {
-                partyClickedOn = seat.personInSeat!.party
+            if (seat.occupied && userType != UserType.Passenger) {
+                partyToShow = seat.personInSeat!.party
             }
         }, label: {
             ZStack{
