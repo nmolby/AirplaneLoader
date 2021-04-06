@@ -20,6 +20,7 @@ struct ContentView: View {
                 VStack {
                     UserTypePicker(userType: $userType, partyToShow: $partyToShow)
                     Spacer()
+                    LegendView(userType: $userType)
                 }
             }
             Spacer()

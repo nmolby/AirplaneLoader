@@ -16,61 +16,59 @@ struct SeatView: View {
     internal var rows: [Row]
     
     private var occupancyColor: Color {
-        if(!seat.occupied) { return Color.white }
+        if(!seat.occupied) { return Color.EMPTY_SEAT_COLOR }
         
         if(userType == UserType.Passenger) {
             if(seat.occupied) {
                 if(seat.personInSeat!.party === partyToShow) {
-                    return Color.green
+                    return Color.PARTY_SEAT_COLOR
                 } else {
-                    return Color.gray
+                    return Color.OCCUPIED_SEAT_COLOR
                 }
-            } else {
-                return Color.white
             }
         }
         
         switch(seat.personInSeat!.party.partyType) {
         case PartyType.business:
-            return Color.pink
+            return Color.BUSINESS_SEAT_COLOR
         case PartyType.tourist:
-            return Color.purple
+            return Color.TOURIST_SEAT_COLOR
         case PartyType.family:
-            return Color(red: 115 / 255, green: 220 / 255, blue: 255 / 255)
+            return Color.FAMILY_SEAT_COLOR
         }
     }
     
     private var borderColor: Color {
-        return seat.business ? Color.blue : Color.black
+        return seat.business ? Color.BUSINESS_BORDER_COLOR : Color.DEFAULT_BORDER_COLOR
     }
     
     private var satisfactionColor: Color {
         if(userType == UserType.Passenger) {
             if(seat.occupied) {
                 if(seat.personInSeat!.party === partyToShow) {
-                    return Color.green
+                    return Color.PARTY_SEAT_COLOR
                 } else {
-                    return Color.gray
+                    return Color.OCCUPIED_SEAT_COLOR
                 }
             } else {
-                return Color.white
+                return Color.EMPTY_SEAT_COLOR
             }
         }
         if let personInSeat = seat.personInSeat {
             if(personInSeat.party.getSatisfaction(seats: personInSeat.party.seats, rows: rows) < -5) {
-                return Color.red
+                return Color.VERY_LOW_SATISFACTION_COLOR
             } else if (personInSeat.party.getSatisfaction(seats: personInSeat.party.seats, rows: rows) < 0) {
-                return Color.yellow
+                return Color.LOW_SATISFACTION_COLOR
             } else if(personInSeat.party.getSatisfaction(seats: personInSeat.party.seats, rows: rows) < 5) {
-                return Color.white
+                return Color.AVERAGE_SATISFACTION_COLOR
             } else if (personInSeat.party.getSatisfaction(seats: personInSeat.party.seats, rows: rows) < 10) {
-                return Color(red: 0.671875, green: 0.69921875, blue: 0.203125)
+                return Color.HIGH_SATISFACTION_COLOR
             } else {
-                return Color.green
+                return Color.VERY_HIGH_SATISFACTION_COLOR
             }
         }
         else {
-            return Color.white
+            return Color.EMPTY_SEAT_COLOR
         }
     }
     

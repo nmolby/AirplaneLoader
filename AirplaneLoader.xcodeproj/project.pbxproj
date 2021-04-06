@@ -24,6 +24,9 @@
 		11A0BF7126193E9300874F81 /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A0BF7026193E9300874F81 /* UserType.swift */; };
 		11A0BF7426193FAB00874F81 /* UserTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A0BF7326193FAB00874F81 /* UserTypePicker.swift */; };
 		11B51E5C25F97AD300077BB8 /* todo in Resources */ = {isa = PBXBuildFile; fileRef = 11B51E5B25F97AD300077BB8 /* todo */; };
+		11D41591261BD6B20027F6CA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D41590261BD6B20027F6CA /* Colors.swift */; };
+		11D41594261BDDEA0027F6CA /* LegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D41593261BDDEA0027F6CA /* LegendView.swift */; };
+		11D41597261BDF130027F6CA /* SeatLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D41596261BDF130027F6CA /* SeatLegendView.swift */; };
 		11EC1AD32617CED9002E4492 /* PassengerTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC1AD22617CED9002E4492 /* PassengerTicketView.swift */; };
 		11EC1AD62617D523002E4492 /* PassengerSeatPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +51,9 @@
 		11A0BF7026193E9300874F81 /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		11A0BF7326193FAB00874F81 /* UserTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypePicker.swift; sourceTree = "<group>"; };
 		11B51E5B25F97AD300077BB8 /* todo */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
+		11D41590261BD6B20027F6CA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		11D41593261BDDEA0027F6CA /* LegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendView.swift; sourceTree = "<group>"; };
+		11D41596261BDF130027F6CA /* SeatLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatLegendView.swift; sourceTree = "<group>"; };
 		11EC1AD22617CED9002E4492 /* PassengerTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerTicketView.swift; sourceTree = "<group>"; };
 		11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerSeatPreviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +120,8 @@
 				11EC1AD22617CED9002E4492 /* PassengerTicketView.swift */,
 				11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */,
 				11A0BF7326193FAB00874F81 /* UserTypePicker.swift */,
+				11D41593261BDDEA0027F6CA /* LegendView.swift */,
+				11D41596261BDF130027F6CA /* SeatLegendView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 				110FC34925EFEB1200E04DA0 /* Party.swift */,
 				110FC34C25EFEB2100E04DA0 /* Person.swift */,
 				11A0BF7026193E9300874F81 /* UserType.swift */,
+				11D41590261BD6B20027F6CA /* Colors.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,9 +210,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				110FC33825EFE76D00E04DA0 /* Persistence.swift in Sources */,
+				11D41594261BDDEA0027F6CA /* LegendView.swift in Sources */,
 				110FC35025EFF47700E04DA0 /* AirplaneView.swift in Sources */,
 				110FC33125EFE76C00E04DA0 /* ContentView.swift in Sources */,
+				11D41591261BD6B20027F6CA /* Colors.swift in Sources */,
 				112D016D25F07FCD00B7496F /* AddPartyView.swift in Sources */,
+				11D41597261BDF130027F6CA /* SeatLegendView.swift in Sources */,
 				110FC34725EFEA0900E04DA0 /* Seat.swift in Sources */,
 				110FC34A25EFEB1200E04DA0 /* Party.swift in Sources */,
 				110FC33B25EFE76D00E04DA0 /* AirplaneLoader.xcdatamodeld in Sources */,
