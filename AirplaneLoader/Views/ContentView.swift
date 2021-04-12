@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @StateObject var airplane = Airplane() //Airplane.getRandomAirplane()
+    @StateObject var airplane = Airplane.getRandomAirplane()
     @State internal var partyToShow: Party? = nil
     @State internal var userType: UserType = UserType.Manager
     

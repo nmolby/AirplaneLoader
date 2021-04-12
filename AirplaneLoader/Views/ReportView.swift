@@ -25,6 +25,16 @@ struct ReportView: View {
                 Text("Use Random 10 Parties")
                 Spacer()
             }
+            HStack {
+                Spacer()
+                Text("\(useRandomPassengers ? airplane.getTotalSatisfaction(parties: parties) : airplane.getTotalSatisfaction()) Total Satisfaction")
+                    .font(.title2)
+                Spacer()
+            }
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2))
+            
+            Divider()
 
             ForEach(parties, id: \.self.id) { party in
                 HStack {
@@ -38,16 +48,9 @@ struct ReportView: View {
                 .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2))
             }
             Spacer()
-            HStack {
-                Spacer()
-                Text("\(useRandomPassengers ? airplane.getTotalSatisfaction(parties: parties) : airplane.getTotalSatisfaction()) Total Satisfaction")
-                    .font(.title2)
-                Spacer()
-            }
 
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2))
         }
+        .navigationBarTitle("Report")
 
     }
 }
