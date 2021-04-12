@@ -31,6 +31,7 @@
 		11EC1AD62617D523002E4492 /* PassengerSeatPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */; };
 		11FDB3D22623D6A3002DFAA0 /* GenerateReportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FDB3D12623D6A3002DFAA0 /* GenerateReportButton.swift */; };
 		11FDB3D52623D6F9002DFAA0 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FDB3D42623D6F9002DFAA0 /* ReportView.swift */; };
+		11FDB3D82623ECFB002DFAA0 /* first-names.txt in Resources */ = {isa = PBXBuildFile; fileRef = 11FDB3D72623ECFB002DFAA0 /* first-names.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerSeatPreviewView.swift; sourceTree = "<group>"; };
 		11FDB3D12623D6A3002DFAA0 /* GenerateReportButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateReportButton.swift; sourceTree = "<group>"; };
 		11FDB3D42623D6F9002DFAA0 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		11FDB3D72623ECFB002DFAA0 /* first-names.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "first-names.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		110FC32D25EFE76C00E04DA0 /* AirplaneLoader */ = {
 			isa = PBXGroup;
 			children = (
+				11FDB3D72623ECFB002DFAA0 /* first-names.txt */,
 				116C284725F166530099C9AE /* Models */,
 				116C284525F166380099C9AE /* Views */,
 				110FC32E25EFE76C00E04DA0 /* AirplaneLoaderApp.swift */,
@@ -204,6 +207,7 @@
 			files = (
 				11B51E5C25F97AD300077BB8 /* todo in Resources */,
 				110FC33625EFE76D00E04DA0 /* Preview Assets.xcassets in Resources */,
+				11FDB3D82623ECFB002DFAA0 /* first-names.txt in Resources */,
 				110FC33325EFE76D00E04DA0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,3 +12,25 @@ struct Person {
     var id = UUID()
     var party: Party
 }
+
+func randomNames() -> [String] {
+    if let filepath = Bundle.main.path(forResource: "first-names", ofType: "txt") {
+        do {
+            let nameString = try String(contentsOfFile: filepath, encoding: String.Encoding.utf8)
+            var names: [String] = []
+            nameString.enumerateLines() { line, _ in
+                names.append(line)
+            }
+            return names
+        } catch {
+            print("AHHHH")
+            return []
+            
+        }
+    } else {
+        print("AHHHH")
+        return []
+        
+    }
+    
+}

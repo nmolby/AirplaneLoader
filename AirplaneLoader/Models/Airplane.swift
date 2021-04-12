@@ -94,13 +94,12 @@ class Airplane: ObservableObject {
         return -1
     }
     
-    func getOccupiedSeats() -> [Seat] {
+    func seats(occupied: Bool = true) -> [Seat] {
         var seats: [Seat] = []
         for row in rows {
             for seat in row.seats {
-                if(seat.occupied) {
+                if(seat.occupied == occupied) {
                     seats.append(seat)
-
                 }
             }
         }
@@ -120,8 +119,68 @@ class Airplane: ObservableObject {
         return parties
     }
     
-    func getTotalSatisfaction() -> Int {
-        return getParties().map({$0.getSatisfaction(seats: $0.seats, rows: rows)}).reduce(0, {x, y in x + y})
+    func getRandomParties(count: Int) -> [Party] {
+        var allParties = getParties()
+        var randomParties: [Party] = []
+        
+        while randomParties.count < count && allParties.count > 0 {
+            let randomParty = allParties.randomElement()!
+            allParties.remove(at: allParties.map({$0.id}).firstIndex(of: randomParty.id)!)
+            randomParties.append(randomParty)
+        }
+        return randomParties
+    }
+    
+    func getTotalSatisfaction(parties : [Party]? = nil) -> Int {
+        let partiesToCheck = parties ?? getParties()
+        return partiesToCheck.map({$0.getSatisfaction(seats: $0.seats, rows: rows)}).reduce(0, {x, y in x + y})
+    }
+    
+    static func getRandomAirplane() -> Airplane {
+        let airplane = Airplane()
+        let totalSeatCount = airplane.rowCount * airplane.rowLayout.filter({$0}).count
+        let partyCount = totalSeatCount / 5 //worse case scenario with 5 people in every party
+        
+        for _ in 0..<partyCount {
+            let partyType = PartyType.allCases.randomElement()!
+            var prefersBusinessSeats: Bool
+            var party: Party
+            switch(partyType) {
+            case .business:
+                let personName = randomNames().randomElement()
+                prefersBusinessSeats = [0, 1].randomElement()! == 0
+                party = BusinessParty(wantsBusinessSeats: prefersBusinessSeats)
+                let person = Person(name: personName, id: UUID(), party: party)
+                party.people = [person]
+            case .family:
+                let partyPeopleCount = [3, 4, 5].randomElement()!
+                party = FamilyParty()
+                var people: [Person] = []
+                for _ in 0..<partyPeopleCount {
+                    let personName = randomNames().randomElement()
+                    let person = Person(name: personName, id: UUID(), party: party)
+                    people.append(person)
+                }
+                party.people = people
+            case .tourist:
+                party = TouristParty()
+                var people: [Person] = []
+                for _ in 0..<2 {
+                    let personName = randomNames().randomElement()
+                    let person = Person(name: personName, id: UUID(), party: party)
+                    people.append(person)
+                }
+                party.people = people
+            }
+            
+            for i in 0..<party.people.count {
+                let seat = airplane.seats(occupied: false).randomElement()!
+                party.seats.append(seat)
+                seat.personInSeat = party.people[i]
+            }
+        }
+        
+        return airplane
     }
     
 }

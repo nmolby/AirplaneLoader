@@ -9,9 +9,24 @@ import SwiftUI
 
 struct ReportView: View {
     @ObservedObject internal var airplane: Airplane
+    @State internal var useRandomPassengers: Bool = true
+    
+    internal var parties: [Party] {
+        return useRandomPassengers ? airplane.getRandomParties(count: 10) : airplane.getParties()
+    }
+
     var body: some View {
         ScrollView {
-            ForEach(airplane.getParties(), id: \.self.id) { party in
+            HStack {
+                Spacer()
+                Text("Use All Parties")
+                Toggle("", isOn: $useRandomPassengers)
+                    .labelsHidden()
+                Text("Use Random 10 Parties")
+                Spacer()
+            }
+
+            ForEach(parties, id: \.self.id) { party in
                 HStack {
                     Text("\(party.people[0].name!)'s \(party.partyType.toString()) Party")
                     Spacer()
@@ -25,7 +40,7 @@ struct ReportView: View {
             Spacer()
             HStack {
                 Spacer()
-                Text("\(airplane.getTotalSatisfaction()) Total Satisfaction")
+                Text("\(useRandomPassengers ? airplane.getTotalSatisfaction(parties: parties) : airplane.getTotalSatisfaction()) Total Satisfaction")
                     .font(.title2)
                 Spacer()
             }

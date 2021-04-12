@@ -110,7 +110,7 @@ struct AddPartyView: View {
     func reseatParty() {
         addingParty = true
         
-        var party = partyToShow!
+        let party = partyToShow!
         
         party.seatChangesRemaining -= 1
         party.previousSeats += party.seats

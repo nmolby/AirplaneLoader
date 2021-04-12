@@ -9,7 +9,9 @@ import SwiftUI
 
 struct GenerateReportButton: View {
     @ObservedObject internal var airplane: Airplane
+    
     var body: some View {
+        
         NavigationLink(destination: ReportView(airplane: airplane)) {
             Text("Generate Report")
                 .font(.footnote)
