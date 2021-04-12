@@ -15,6 +15,19 @@ enum PartyType: String, CaseIterable, Identifiable {
     var id: String { self.rawValue }
 }
 
+extension PartyType {
+    func toString() -> String {
+        switch(self) {
+        case .business:
+            return "Business"
+        case .family:
+            return "Family"
+        case .tourist:
+            return "Tourist"
+        }
+    }
+}
+
 
 protocol Party: class {
     var id: UUID {get}

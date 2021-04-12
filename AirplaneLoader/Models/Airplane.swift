@@ -94,6 +94,36 @@ class Airplane: ObservableObject {
         return -1
     }
     
+    func getOccupiedSeats() -> [Seat] {
+        var seats: [Seat] = []
+        for row in rows {
+            for seat in row.seats {
+                if(seat.occupied) {
+                    seats.append(seat)
+
+                }
+            }
+        }
+        return seats
+    }
+    
+    func getParties() -> [Party] {
+        var parties: [Party] = []
+        for row in rows {
+            for seat in row.seats {
+                if(seat.occupied && !parties.map({$0.id}).contains(seat.personInSeat!.party.id) ) {
+                    parties.append(seat.personInSeat!.party)
+
+                }
+            }
+        }
+        return parties
+    }
+    
+    func getTotalSatisfaction() -> Int {
+        return getParties().map({$0.getSatisfaction(seats: $0.seats, rows: rows)}).reduce(0, {x, y in x + y})
+    }
+    
 }
 
 class Row: ObservableObject, Identifiable {

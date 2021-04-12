@@ -14,19 +14,29 @@ struct ContentView: View {
     @State internal var userType: UserType = UserType.Manager
     
     var body: some View {
-        VStack{
-            HStack {
-                AirplaneView(airplane: airplane, partyToShow: $partyToShow, userType: $userType)
-                VStack {
-                    UserTypePicker(userType: $userType, partyToShow: $partyToShow)
-                    Spacer()
-                    LegendView(userType: $userType)
+        NavigationView {
+            VStack{
+                HStack {
+                    AirplaneView(airplane: airplane, partyToShow: $partyToShow, userType: $userType)
+                    VStack {
+                        UserTypePicker(userType: $userType, partyToShow: $partyToShow)
+                        if(userType == UserType.Manager) {
+                            GenerateReportButton(airplane: airplane)
+                        } else {
+                            Spacer()
+                        }
+                        LegendView(userType: $userType)
+                    }
                 }
+                Spacer()
+                AddPartyView(rows: $airplane.rows, inefficientSeatPicker: SeatPickerFunctions.recursiveSeatPicker, efficientSeatPicker: SeatPickerFunctions.basicSeatPicker, partyToShow: $partyToShow, userType: $userType)
+                Spacer()
             }
-            Spacer()
-            AddPartyView(rows: $airplane.rows, inefficientSeatPicker: SeatPickerFunctions.recursiveSeatPicker, efficientSeatPicker: SeatPickerFunctions.basicSeatPicker, partyToShow: $partyToShow, userType: $userType)
-            Spacer()
+            .navigationBarTitle("")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
+
     }
 
 }
