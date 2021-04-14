@@ -97,7 +97,7 @@ struct AddPartyView: View {
                         }
                         Button("Add party") {
                             createParty(partyType: PartyType.family)
-                        }.disabled(peopleNames[0] == "" || peopleNames[1] == "")                }
+                        }.disabled(peopleNames[0] == "" || peopleNames[1] == "")}
                 }
 
             }

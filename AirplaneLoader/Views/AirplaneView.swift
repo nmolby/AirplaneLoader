@@ -38,7 +38,7 @@ struct AirplaneView: View {
             }
             ForEach(airplane.rows) { row in
                 HStack{
-                    Text(String(row.rowNum))
+                    Text(String(row.rowNum + 1))
                         .font(.system(size: letteringSize))
                         .frame(width: 20)
 

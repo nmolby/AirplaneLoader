@@ -22,14 +22,12 @@ struct ContentView: View {
                         UserTypePicker(userType: $userType, partyToShow: $partyToShow)
                         if(userType == UserType.Manager) {
                             GenerateReportButton(airplane: airplane)
-                        } else {
-                            Spacer()
-                        }
+                        } 
                         LegendView(userType: $userType)
                     }
                 }
                 Spacer()
-                AddPartyView(rows: $airplane.rows, inefficientSeatPicker: SeatPickerFunctions.recursiveSeatPicker, efficientSeatPicker: SeatPickerFunctions.basicSeatPicker, partyToShow: $partyToShow, userType: $userType)
+                AddPartyView(rows: $airplane.rows, inefficientSeatPicker: SeatPickerFunctions.recursiveSeatPicker, efficientSeatPicker: SeatPickerFunctions.familySeatPicker, partyToShow: $partyToShow, userType: $userType)
                 Spacer()
             }
             .navigationBarTitle("")
