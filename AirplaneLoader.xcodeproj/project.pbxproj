@@ -22,11 +22,13 @@
 		114DA97B260A7C2E0024CB26 /* SeatPickerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114DA97A260A7C2E0024CB26 /* SeatPickerFunctions.swift */; };
 		116C284325F166250099C9AE /* SeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C284225F166250099C9AE /* SeatView.swift */; };
 		11A0BF7126193E9300874F81 /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A0BF7026193E9300874F81 /* UserType.swift */; };
-		11A0BF7426193FAB00874F81 /* UserTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A0BF7326193FAB00874F81 /* UserTypePicker.swift */; };
+		11A0BF7426193FAB00874F81 /* UserTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A0BF7326193FAB00874F81 /* UserTypeButton.swift */; };
 		11B51E5C25F97AD300077BB8 /* todo in Resources */ = {isa = PBXBuildFile; fileRef = 11B51E5B25F97AD300077BB8 /* todo */; };
 		11D41591261BD6B20027F6CA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D41590261BD6B20027F6CA /* Colors.swift */; };
 		11D41594261BDDEA0027F6CA /* LegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D41593261BDDEA0027F6CA /* LegendView.swift */; };
 		11D41597261BDF130027F6CA /* SeatLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D41596261BDF130027F6CA /* SeatLegendView.swift */; };
+		11E653912636226B004C5C96 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E653902636226B004C5C96 /* LoginView.swift */; };
+		11E6539526362EB2004C5C96 /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E6539426362EB2004C5C96 /* LoginInfo.swift */; };
 		11EC1AD32617CED9002E4492 /* PassengerTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC1AD22617CED9002E4492 /* PassengerTicketView.swift */; };
 		11EC1AD62617D523002E4492 /* PassengerSeatPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */; };
 		11F13C1D262732EE00AB2F01 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F13C1C262732ED00AB2F01 /* Direction.swift */; };
@@ -53,11 +55,13 @@
 		114DA97A260A7C2E0024CB26 /* SeatPickerFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatPickerFunctions.swift; sourceTree = "<group>"; };
 		116C284225F166250099C9AE /* SeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatView.swift; sourceTree = "<group>"; };
 		11A0BF7026193E9300874F81 /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
-		11A0BF7326193FAB00874F81 /* UserTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypePicker.swift; sourceTree = "<group>"; };
+		11A0BF7326193FAB00874F81 /* UserTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeButton.swift; sourceTree = "<group>"; };
 		11B51E5B25F97AD300077BB8 /* todo */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
 		11D41590261BD6B20027F6CA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		11D41593261BDDEA0027F6CA /* LegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendView.swift; sourceTree = "<group>"; };
 		11D41596261BDF130027F6CA /* SeatLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatLegendView.swift; sourceTree = "<group>"; };
+		11E653902636226B004C5C96 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		11E6539426362EB2004C5C96 /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
 		11EC1AD22617CED9002E4492 /* PassengerTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerTicketView.swift; sourceTree = "<group>"; };
 		11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerSeatPreviewView.swift; sourceTree = "<group>"; };
 		11F13C1C262732ED00AB2F01 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 				11B51E5B25F97AD300077BB8 /* todo */,
 				114DA97A260A7C2E0024CB26 /* SeatPickerFunctions.swift */,
 				11F13C1C262732ED00AB2F01 /* Direction.swift */,
+				11E6539426362EB2004C5C96 /* LoginInfo.swift */,
 			);
 			path = AirplaneLoader;
 			sourceTree = "<group>";
@@ -129,11 +134,12 @@
 				116C284225F166250099C9AE /* SeatView.swift */,
 				11EC1AD22617CED9002E4492 /* PassengerTicketView.swift */,
 				11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */,
-				11A0BF7326193FAB00874F81 /* UserTypePicker.swift */,
+				11A0BF7326193FAB00874F81 /* UserTypeButton.swift */,
 				11D41593261BDDEA0027F6CA /* LegendView.swift */,
 				11D41596261BDF130027F6CA /* SeatLegendView.swift */,
 				11FDB3D12623D6A3002DFAA0 /* GenerateReportButton.swift */,
 				11FDB3D42623D6F9002DFAA0 /* ReportView.swift */,
+				11E653902636226B004C5C96 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +232,7 @@
 				110FC33825EFE76D00E04DA0 /* Persistence.swift in Sources */,
 				11D41594261BDDEA0027F6CA /* LegendView.swift in Sources */,
 				110FC35025EFF47700E04DA0 /* AirplaneView.swift in Sources */,
+				11E653912636226B004C5C96 /* LoginView.swift in Sources */,
 				110FC33125EFE76C00E04DA0 /* ContentView.swift in Sources */,
 				11D41591261BD6B20027F6CA /* Colors.swift in Sources */,
 				112D016D25F07FCD00B7496F /* AddPartyView.swift in Sources */,
@@ -236,13 +243,14 @@
 				11FDB3D52623D6F9002DFAA0 /* ReportView.swift in Sources */,
 				11EC1AD62617D523002E4492 /* PassengerSeatPreviewView.swift in Sources */,
 				110FC34425EFE9B000E04DA0 /* Airplane.swift in Sources */,
+				11E6539526362EB2004C5C96 /* LoginInfo.swift in Sources */,
 				114DA97B260A7C2E0024CB26 /* SeatPickerFunctions.swift in Sources */,
 				11EC1AD32617CED9002E4492 /* PassengerTicketView.swift in Sources */,
 				11A0BF7126193E9300874F81 /* UserType.swift in Sources */,
 				11F13C1D262732EE00AB2F01 /* Direction.swift in Sources */,
 				116C284325F166250099C9AE /* SeatView.swift in Sources */,
 				110FC34D25EFEB2100E04DA0 /* Person.swift in Sources */,
-				11A0BF7426193FAB00874F81 /* UserTypePicker.swift in Sources */,
+				11A0BF7426193FAB00874F81 /* UserTypeButton.swift in Sources */,
 				110FC32F25EFE76C00E04DA0 /* AirplaneLoaderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

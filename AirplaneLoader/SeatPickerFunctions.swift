@@ -41,7 +41,6 @@ class SeatPickerFunctions {
                         bestSeats = seatResult.seats
                     }
                 }
-
             }
         }
         
@@ -87,7 +86,6 @@ class SeatPickerFunctions {
         if(indexOfPerson == party.people.count) {
             return (currentSeats, party.getSatisfaction(seats: currentSeats, rows: rows))
         }
-        
         
         var bestSeats: [Seat] = []
         var bestSatisfaction: Int = -100000

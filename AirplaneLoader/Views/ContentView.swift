@@ -9,9 +9,9 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @StateObject var airplane = Airplane.getRandomAirplane()
+    @StateObject var airplane = Airplane() //Airplane.getRandomAirplane()
     @State internal var partyToShow: Party? = nil
-    @State internal var userType: UserType = UserType.Manager
+    @State internal var userType: UserType = UserType.Passenger
     
     var body: some View {
         NavigationView {
@@ -19,7 +19,7 @@ struct ContentView: View {
                 HStack {
                     AirplaneView(airplane: airplane, partyToShow: $partyToShow, userType: $userType)
                     VStack {
-                        UserTypePicker(userType: $userType, partyToShow: $partyToShow)
+                        UserTypeButton(userType: $userType, partyToShow: $partyToShow)
                         if(userType == UserType.Manager) {
                             GenerateReportButton(airplane: airplane)
                         } 

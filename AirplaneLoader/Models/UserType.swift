@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 enum UserType: String, Equatable, CaseIterable {
-    case Passenger = "P"
-    case CheckInAgent = "C"
-    case Manager = "M"
+    case Passenger = "Passenger"
+    case CheckInAgent = "Check In Agent"
+    case Manager = "Manager"
     
     var localizedName: LocalizedStringKey { LocalizedStringKey(rawValue) }
 
