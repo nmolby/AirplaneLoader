@@ -16,7 +16,7 @@ struct PassengerSeatPreviewView: View {
                 .font(.title2)
                 .padding()
             Spacer()
-            NavigationLink(destination: PassengerTicketView(person: person, seat: seat)) {
+            NavigationLink(destination: TicketView(person: person, seat: seat)) {
                 Image(systemName: "barcode.viewfinder")
                     .scaleEffect(x: 2.5, y: 2.5)
                     .padding([.trailing], 15)

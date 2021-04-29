@@ -9,14 +9,17 @@ import Foundation
 import CryptoKit
 
 class LoginInfo {
+    //password: passengerPassword
     static var passengerLogin = [
         "passenger": "13e60f0f189e30c027b0e22e89d19d2bab161a72a357ef8811151504776a71dc"
     ]
     
+    //password: checkinPassword
     static var checkinLogin = [
         "checkin": "ee29a78b9b86c6c1aaca2380a66390c5aba233171e12f5ad1fa81ee061975cb4"
     ]
     
+    //password: managerPassword
     static var managerLogin = [
         "manager": "d644b68a30ff8201d731e34dc82f4b4fd6776a52856b840512363ae992c57b8c"
     ]

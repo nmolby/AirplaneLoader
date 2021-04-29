@@ -29,7 +29,7 @@
 		11D41597261BDF130027F6CA /* SeatLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D41596261BDF130027F6CA /* SeatLegendView.swift */; };
 		11E653912636226B004C5C96 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E653902636226B004C5C96 /* LoginView.swift */; };
 		11E6539526362EB2004C5C96 /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E6539426362EB2004C5C96 /* LoginInfo.swift */; };
-		11EC1AD32617CED9002E4492 /* PassengerTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC1AD22617CED9002E4492 /* PassengerTicketView.swift */; };
+		11EC1AD32617CED9002E4492 /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC1AD22617CED9002E4492 /* TicketView.swift */; };
 		11EC1AD62617D523002E4492 /* PassengerSeatPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */; };
 		11F13C1D262732EE00AB2F01 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F13C1C262732ED00AB2F01 /* Direction.swift */; };
 		11FDB3D22623D6A3002DFAA0 /* GenerateReportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FDB3D12623D6A3002DFAA0 /* GenerateReportButton.swift */; };
@@ -62,7 +62,7 @@
 		11D41596261BDF130027F6CA /* SeatLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatLegendView.swift; sourceTree = "<group>"; };
 		11E653902636226B004C5C96 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		11E6539426362EB2004C5C96 /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
-		11EC1AD22617CED9002E4492 /* PassengerTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerTicketView.swift; sourceTree = "<group>"; };
+		11EC1AD22617CED9002E4492 /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerSeatPreviewView.swift; sourceTree = "<group>"; };
 		11F13C1C262732ED00AB2F01 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		11FDB3D12623D6A3002DFAA0 /* GenerateReportButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateReportButton.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				110FC34F25EFF47700E04DA0 /* AirplaneView.swift */,
 				112D016C25F07FCD00B7496F /* AddPartyView.swift */,
 				116C284225F166250099C9AE /* SeatView.swift */,
-				11EC1AD22617CED9002E4492 /* PassengerTicketView.swift */,
+				11EC1AD22617CED9002E4492 /* TicketView.swift */,
 				11EC1AD52617D523002E4492 /* PassengerSeatPreviewView.swift */,
 				11A0BF7326193FAB00874F81 /* UserTypeButton.swift */,
 				11D41593261BDDEA0027F6CA /* LegendView.swift */,
@@ -245,7 +245,7 @@
 				110FC34425EFE9B000E04DA0 /* Airplane.swift in Sources */,
 				11E6539526362EB2004C5C96 /* LoginInfo.swift in Sources */,
 				114DA97B260A7C2E0024CB26 /* SeatPickerFunctions.swift in Sources */,
-				11EC1AD32617CED9002E4492 /* PassengerTicketView.swift in Sources */,
+				11EC1AD32617CED9002E4492 /* TicketView.swift in Sources */,
 				11A0BF7126193E9300874F81 /* UserType.swift in Sources */,
 				11F13C1D262732EE00AB2F01 /* Direction.swift in Sources */,
 				116C284325F166250099C9AE /* SeatView.swift in Sources */,

@@ -8,7 +8,7 @@
 import CoreImage.CIFilterBuiltins
 import SwiftUI
 
-struct PassengerTicketView: View {
+struct TicketView: View {
     let person: Person
     let seat: Seat
     let context = CIContext()
